@@ -24,6 +24,10 @@ ENV/
 .DS_Store
 Thumbs.db
 
+# Logs
+*.log
+logs/
+
 # Personal notes
 INTERVIEW_NOTES.md
 shani_readme.md
