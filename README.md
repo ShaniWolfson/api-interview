@@ -1,5 +1,7 @@
 # LoanStreet Development Project
 
+> **Quick Start**: See [QUICK_START.md](QUICK_START.md) to run the project.
+
 ## Overview
 Customers have taken note of the wizardry of LoanStreet's solutions,
 allowing them to quickly produce accurate and beautiful reports.
