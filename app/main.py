@@ -114,22 +114,22 @@ def list_loans(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     # Return the list of loans (FastAPI will convert to JSON using the response_model schema)
     return loans
 
-@app.delete("/loans/{loan_id}", status_code=204)
-def delete_loan(loan_id: int, db: Session = Depends(get_db)):
-    """Delete a loan by its unique identifier"""
-    logger.info(f"Deleting loan with ID: {loan_id}")
+# @app.delete("/loans/{loan_id}", status_code=204)
+# def delete_loan(loan_id: int, db: Session = Depends(get_db)):
+#     """Delete a loan by its unique identifier"""
+#     logger.info(f"Deleting loan with ID: {loan_id}")
     
-    # Query the database for the loan with the given ID using SQLAlchemy
-    db_loan = db.query(models.Loan).filter(models.Loan.id == loan_id).first()
+#     # Query the database for the loan with the given ID using SQLAlchemy
+#     db_loan = db.query(models.Loan).filter(models.Loan.id == loan_id).first()
     
-    # If no loan is found, raise a 404 error
-    if db_loan is None:
-        logger.warning(f"Loan not found for deletion: ID {loan_id}")
-        raise HTTPException(status_code=404, detail="Loan not found")
+#     # If no loan is found, raise a 404 error
+#     if db_loan is None:
+#         logger.warning(f"Loan not found for deletion: ID {loan_id}")
+#         raise HTTPException(status_code=404, detail="Loan not found")
     
-    # If found, delete the loan
-    db.delete(db_loan)
-    db.commit()
+#     # If found, delete the loan
+#     db.delete(db_loan)
+#     db.commit()
     
-    logger.info(f"Loan deleted successfully: ID {loan_id}")
-    return None
+#     logger.info(f"Loan deleted successfully: ID {loan_id}")
+#     return None
