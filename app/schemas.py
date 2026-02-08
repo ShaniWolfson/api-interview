@@ -1,5 +1,5 @@
 """
-Pydantic schemas for loan data validation and serialization.
+Pydantic schemas for loan data validation and conversion to object.
 
 These schemas define the shape of data for different operations:
 - LoanBase: Common fields shared across operations
@@ -13,7 +13,12 @@ from typing import Optional
 
 
 class LoanBase(BaseModel):
-    """Base schema with common loan fields and validation rules"""
+    """
+    Base schema with common loan fields and validation rules
+    Field(...) - Ellipsis makes fields required (must be in JSON)
+    "gt=0" means the value must be greater than 0, 
+    "ge=0" means it must be greater than or equal to 0
+    """
     amount: float = Field(..., gt=0, description="Loan amount must be positive")
     interest_rate: float = Field(..., ge=0, description="Interest rate must be non-negative")
     length_months: int = Field(..., gt=0, description="Loan length must be positive")
@@ -40,7 +45,9 @@ class LoanResponse(LoanBase):
     """
     Schema for loan API responses.
     Includes the database-generated ID and enables reading from ORM objects.
+        
     """
     id: int  # ← Adds the 'id' field to the inherited fields
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True  # Read from SQLAlchemy objects (what you have)
