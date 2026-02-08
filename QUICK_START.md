@@ -1,6 +1,18 @@
 # Quick Start Guide
 
-## Setup & Run
+## Live Demo
+
+🌐 **Deployed API**: https://api-interview.onrender.com/
+
+Try it now:
+- **API Docs**: https://api-interview.onrender.com/docs
+- **Health Check**: https://api-interview.onrender.com/
+
+*Note: Free tier spins down after 15 minutes - first request may take 30 seconds to wake up.*
+
+---
+
+## Setup & Run locally
 
 ### 1. Install Dependencies
 ```bash
